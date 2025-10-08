@@ -21,7 +21,7 @@ model User {
   name      String?
   createdAt DateTime  @default(now())
   posts     Post[]
-  comments  Comment[] // 👈 добавили обратную связь
+  comments  Comment[]
 }
 
 model Post {
@@ -31,8 +31,7 @@ model Post {
   user      User      @relation(fields: [userId], references: [id])
   userId    Int
   createdAt DateTime  @default(now())
-  comments  Comment[] // 👈 добавили обратную связь
-}
+  comments  Comment[]
 
 model Comment {
   id        Int      @id @default(autoincrement())
